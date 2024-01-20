@@ -1,3 +1,3 @@
 # hello_flutter
 
-A new Flutter project.
+A random flutter project as my first flutter project

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hello_flutter/counter_page.dart';
 
 class MainPage extends StatelessWidget {
   const MainPage({super.key});
@@ -33,6 +34,13 @@ class MainPage extends StatelessWidget {
                 width: 100,
                 height: 100,
                 color: Colors.cyan,
+                child: const Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Hello",
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                  ),
+                ),
               ),
               SizedBox(
                   width: 100,
@@ -48,6 +56,13 @@ class MainPage extends StatelessWidget {
                 width: 100,
                 height: 100,
                 color: Colors.cyanAccent,
+                child: const Align(
+                  alignment: Alignment.center,
+                  child: Text(
+                    "World",
+                    style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                  ),
+                ),
               ),
             ],
           ),
@@ -57,11 +72,17 @@ class MainPage extends StatelessWidget {
             color: Colors.green,
             margin: const EdgeInsets.only(top: 10, bottom: 10),
           ),
-          Container(
-            width: 100,
-            height: 100,
-            color: Colors.blueAccent,
-            margin: const EdgeInsets.only(top: 10, bottom: 10),
+          Padding(
+            padding: const EdgeInsets.only(bottom: 10),
+            child: ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const CounterPage(),
+                      ));
+                },
+                child: const Text("Count Page")),
           ),
         ],
       ),

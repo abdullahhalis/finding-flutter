@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hello_flutter/main_page.dart';
 
 class ListViewPage extends StatefulWidget {
   const ListViewPage({super.key});
@@ -18,14 +19,27 @@ class _ListViewPageState extends State<ListViewPage> {
         backgroundColor: Colors.redAccent,
         foregroundColor: Colors.white,
       ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.home),
+        onPressed: () {
+          Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const MainPage(),
+              ),
+              (route) => false);
+        },
+      ),
       body: ListView(
         children: [
           Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly, children: [
             ElevatedButton(
               onPressed: () {
                 setState(() {
-                  widgets.removeLast();
-                  counter--;
+                  if (widgets.isNotEmpty) {
+                    widgets.removeLast();
+                    counter--;
+                  }
                 });
               },
               child: const Text("Decrease data"),
